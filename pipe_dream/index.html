@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Pipe Dream</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="768" height="768" class="p-absolute"></canvas>
+		<div id="wrapper">
+		<div id="buffer"></div>	
+		<div id="pipes">
+		</div>
+		</div>
+	</body>
+	<style>
+		body {
+			background: #232323;
+			margin: 0;
+		}
+		.p-relative {
+			position: relative;
+		}
+		.p-absolute {
+			position: absolute;
+		}
+		.highlight {
+			border: solid 3px white;
+		}
+		#buffer {
+			background-image: url('img/buffer.png');
+			height: 192px;
+		}
+		#wrapper {
+			width: 768px;
+			background: #050505; 
+		}
+		.pipe {
+			background: url('img/pipe_red.png');
+			width: 192px;
+			height: 192px;
+		}
+		.half-intersection {
+			background-position-x: -192px;
+		}
+		.full-intersection {
+			background-position-x: 0;
+		}
+		.straight {
+			background-position-x: -384px;
+		}
+		.corner {
+			background-position-x: -576px;
+		}
+		.north, .east, .south, .west {
+			transition: transform 200ms;
+		}
+		.north {
+			transform: rotate(360deg);
+
+		}
+		.east {
+			transform: rotate(90deg);
+		}
+		.south {
+			transform: rotate(180deg);
+		}
+		.west {
+			transform: rotate(270deg);
+		}
+		.row {
+			display: flex;
+		}
+		.n {
+			border-top: solid thick green;
+		}
+		.e {
+			border-left: solid thick green;
+		}
+		.s {
+			border-bottom: solid thick green;
+		}
+		.w {
+			border-right: solid thick green;
+		}
+	</style>
+	<script src="game.js"></script>
+	<script src="display.js"></script>
+	<script src="GameUtilities.js"></script>
+	<script src="objects/Pipe.js"></script>
+	<script src="objects/FullPipe.js"></script>
+	<script src="objects/HalfPipe.js"></script>
+	<script src="objects/StraightPipe.js"></script>
+	<script src="objects/CornerPipe.js"></script>
+	<script src="objects/Gunk.js"></script>
+	<script src="objects/Flow.js"></script>
+	<script>
+		game.init();
+		game.update();
+	</script>
+</html>
